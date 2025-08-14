@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Games from './pages/Games';
 import Quiz from './pages/Quiz';
 import About from './pages/About';
+import Leaderboard from './components/Leaderboard';
 import CharacterMatch from './games/CharacterMatch';
 import BreathingStyleMatch from './games/BreathingStyleMatch';
 import HashiraMemory from './games/HashiraMemory';
@@ -24,6 +25,7 @@ function App() {
           <Route path="/games/trivia" element={<Trivia />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/quiz/:quizId" element={<Trivia />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Layout>

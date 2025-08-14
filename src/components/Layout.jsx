@@ -55,8 +55,8 @@ const Layout = ({ children }) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link 
-                to="/quiz" 
+              <Link
+                to="/quiz"
                 className={`nav-link ${isActive('/quiz') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
@@ -64,8 +64,17 @@ const Layout = ({ children }) => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link 
-                to="/about" 
+              <Link
+                to="/leaderboard"
+                className={`nav-link ${isActive('/leaderboard') ? 'active' : ''}`}
+                onClick={closeMenu}
+              >
+                🏆 Leaderboard
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/about"
                 className={`nav-link ${isActive('/about') ? 'active' : ''}`}
                 onClick={closeMenu}
               >
