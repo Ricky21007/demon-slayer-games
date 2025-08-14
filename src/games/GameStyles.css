@@ -225,6 +225,16 @@
   background-clip: text;
 }
 
+.best-score {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(78, 205, 196, 0.2);
+  border: 1px solid #4ecdc4;
+  border-radius: 8px;
+  color: #4ecdc4;
+  font-weight: bold;
+}
+
 .game-actions {
   display: flex;
   gap: 1rem;
