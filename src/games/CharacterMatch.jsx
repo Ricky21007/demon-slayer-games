@@ -107,6 +107,11 @@ const CharacterMatch = () => {
             <div className="score-percentage">
               {Math.round((score / characters.length) * 100)}%
             </div>
+            {bestScore && (
+              <div className="best-score">
+                <small>Best Score: {bestScore.score}%</small>
+              </div>
+            )}
           </div>
           <div className="game-actions">
             <button onClick={resetGame} className="btn btn-primary">
@@ -128,6 +133,7 @@ const CharacterMatch = () => {
         <div className="game-progress">
           <span>Question {currentQuestion + 1} of {characters.length}</span>
           <span>Score: {score}</span>
+          {bestScore && <span>Best: {bestScore.score}%</span>}
         </div>
       </div>
       
