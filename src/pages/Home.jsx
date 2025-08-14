@@ -21,6 +21,9 @@ const Home = () => {
             <Link to="/quiz" className="btn btn-secondary">
               📋 Take Quizzes
             </Link>
+            <Link to="/leaderboard" className="btn btn-tertiary">
+              🏆 Leaderboard
+            </Link>
           </div>
         </div>
         <div className="hero-image">

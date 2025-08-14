@@ -149,6 +149,17 @@
   box-shadow: 0 12px 35px rgba(78, 205, 196, 0.6);
 }
 
+.btn-tertiary {
+  background: linear-gradient(45deg, #ffd93d, #f39c12);
+  color: #333;
+  box-shadow: 0 8px 25px rgba(255, 217, 61, 0.4);
+}
+
+.btn-tertiary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 217, 61, 0.6);
+}
+
 /* Features Section */
 .features-section {
   padding: 3rem 0;
