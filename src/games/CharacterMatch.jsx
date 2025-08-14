@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { saveScore, getBestScore } from '../utils/scoreStorage';
 import './GameStyles.css';
 
 const CharacterMatch = () => {
@@ -8,6 +9,7 @@ const CharacterMatch = () => {
   const [gameCompleted, setGameCompleted] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResult, setShowResult] = useState(false);
+  const [bestScore, setBestScore] = useState(null);
 
   const characters = [
     {
@@ -42,6 +44,28 @@ const CharacterMatch = () => {
     }
   ];
 
+  useEffect(() => {
+    const best = getBestScore('CHARACTER_MATCH');
+    setBestScore(best);
+  }, []);
+
+  const handleGameComplete = () => {
+    const scoreData = {
+      score: Math.round((score / characters.length) * 100),
+      correctAnswers: score,
+      totalQuestions: characters.length,
+      gameType: 'Character Match'
+    };
+
+    const savedScore = saveScore('CHARACTER_MATCH', scoreData);
+    if (savedScore) {
+      const newBest = getBestScore('CHARACTER_MATCH');
+      setBestScore(newBest);
+    }
+
+    setGameCompleted(true);
+  };
+
   const handleAnswerClick = (answer) => {
     if (selectedAnswer !== null) return;
     
@@ -58,7 +82,7 @@ const CharacterMatch = () => {
         setSelectedAnswer(null);
         setShowResult(false);
       } else {
-        setGameCompleted(true);
+        handleGameComplete();
       }
     }, 1500);
   };
