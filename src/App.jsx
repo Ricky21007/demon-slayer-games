@@ -1,31 +1,34 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Games from './pages/Games';
+import Quiz from './pages/Quiz';
+import About from './pages/About';
+import CharacterMatch from './games/CharacterMatch';
+import BreathingStyleMatch from './games/BreathingStyleMatch';
+import HashiraMemory from './games/HashiraMemory';
+import Trivia from './games/Trivia';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>🗡️ Demon Slayer: Free Games & Quizzes</h1>
-        <p>
-          An interactive fan-made website built with React.js where users can play 
-          Demon Slayer: Kimetsu no Yaiba-themed games, quizzes, and puzzles — all for free!
-        </p>
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="read-the-docs">
-          Welcome to your Demon Slayer games website! Start building your games and quizzes.
-        </p>
-      </header>
-    </div>
-  )
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/games" element={<Games />} />
+          <Route path="/games/character-match" element={<CharacterMatch />} />
+          <Route path="/games/breathing-style-match" element={<BreathingStyleMatch />} />
+          <Route path="/games/hashira-memory" element={<HashiraMemory />} />
+          <Route path="/games/trivia" element={<Trivia />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/quiz/:quizId" element={<Trivia />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
 }
 
-export default App
+export default App;
